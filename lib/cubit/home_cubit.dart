@@ -2,8 +2,9 @@ import 'package:bloc/bloc.dart';
 import 'package:excercise/repo/modals/home_response.dart';
 import 'package:excercise/repo/repository.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gif/flutter_gif.dart';
+// import 'package:flutter_gif/flutter_gif.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:gif/gif.dart';
 
 part 'home_state.dart';
 part 'home_cubit.freezed.dart';
@@ -11,13 +12,13 @@ part 'home_cubit.freezed.dart';
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(const HomeState.initial());
 
-  late FlutterGifController controller;
+  late GifController controller;
   HomeRespone? response;
   List<int> selectedIndex = [];
   late double size;
 
   init({required BuildContext context}) {
-    size = MediaQuery.of(context).size.width / 3 - 30;
+    size = MediaQuery.of(context).size.width / 3.4;
   }
 
   getData() async {
