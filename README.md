@@ -17,6 +17,5 @@ samples, guidance on mobile development, and a full API reference.
 
 # App Flow GIF
 
-
 # Spent time: 
   11 Hours.
