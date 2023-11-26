@@ -15,9 +15,8 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-# App Flow GIF
+### App Flow GIF
+![](https://github.com/dexbytesinfotech/excercise-sample/blob/development/media/final_output.gif)
 
-
-
-# Spent time: 
+### Spent time: 
   11 Hours.
