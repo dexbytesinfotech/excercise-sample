@@ -18,6 +18,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   HomeCubit cubit = HomeCubit();
+  List<Equipments> homeResponseList = [];
 
   @override
   void initState() {
@@ -34,16 +35,57 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     cubit.controller.dispose();
   }
 
+Widget homeList(){
+  return GridView.builder(
+    padding: EdgeInsets.symmetric(horizontal: 15).copyWith(top: 100),
+    gridDelegate:
+    const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 3, // number of items in each row
+        mainAxisSpacing: 12, // spacing between rows
+        crossAxisSpacing: 12, // spacing between columns
+        mainAxisExtent: 151
+    ),
+    scrollDirection: Axis.vertical,
+    shrinkWrap: true,
+    itemBuilder: (context, index) {
 
+      return ExcerciseWidgets.homeListElement(
+          selected: cubit.selectedIndex.contains(index),
+          onChanged: () {
+            cubit.onValueChanged(index: index);
+          },
+          controller: cubit.controller,
+          imageUrl: 'https://media.self.com/photos/61d31f66f31786bad768890d/master/w_320%2Cc_limit/Jowan_10.gif',
+          size: cubit.size,
+          title: "${homeResponseList.elementAt(index).name}");
+    },
+    itemCount: homeResponseList.length,
+  );
+}
+
+// SnackBar Alert
+void snackBarAlert({String? message = "Please select any three", bool? isError = false}){
+     final snackDemo = SnackBar(
+      content: Text('$message',style: TextStyle(color:  isError!?Colors.red:Colors.white,),textAlign: TextAlign.center,),
+      backgroundColor: isError!?Colors.white:Colors.black,
+      elevation: 10,
+      behavior: SnackBarBehavior.floating,
+      padding: EdgeInsets.symmetric(vertical: 20,horizontal: 12),
+      margin: EdgeInsets.symmetric(horizontal: 5),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackDemo);
+}
   @override
   Widget build(BuildContext context) {
     cubit.init(context: context);
     cubit.controller = GifController(vsync: this);
-
     return BlocConsumer<HomeCubit, HomeState>(
       bloc: cubit,
       listener: (context, state) {
         // TODO: implement listener
+        if(state == HomeState.errors()){
+          snackBarAlert(message: "Sorry you can't select more than three!",isError: true);
+        }
       },
       builder: (context, state) {
         return Scaffold(
@@ -60,29 +102,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         loading: () => const Center(
                           child: CircularProgressIndicator(),
                         ),
-                        errors: () => Container(),
-                        sucess: (response) => GridView.builder(
-                          padding: EdgeInsets.symmetric(horizontal: 15).copyWith(top: 100),
-                          gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 3, // number of items in each row
-                              mainAxisSpacing: 12, // spacing between rows
-                              crossAxisSpacing: 12, // spacing between columns
-                              mainAxisExtent: 151
-                          ),
-                          scrollDirection: Axis.vertical,
-                          shrinkWrap: true,
-                          itemBuilder: (context, index) {
-                            return ExcerciseWidgets.homeListElement(
-                                selected: cubit.selectedIndex.contains(index),
-                                onChanged: () => cubit.onValueChanged(index: index),
-                                controller: cubit.controller,
-                                imageUrl: 'https://media.self.com/photos/61d31f66f31786bad768890d/master/w_320%2Cc_limit/Jowan_10.gif',
-                                size: cubit.size,
-                                title: "${response.equipments!.elementAt(index).name}");
-                          },
-                          itemCount: response.equipments!.length,
-                        )),
+                        errors: () => homeList(),
+                        onSelect: (selectedIndex)=> homeList(),
+                        sucess: (response) {
+                          homeResponseList = response.equipments!;
+                         return homeList();
+                        }
+                            ),
                   ],
                 ),
               ),
@@ -100,8 +126,6 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       style: ElevatedButton.styleFrom(
                         primary: Colors.white,
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))
-
-
                       ),
                       onPressed: () {
                         cubit.getData();
@@ -114,18 +138,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))
                       ),
                       onPressed: () {
-
-                        final snackdemo = SnackBar(
-                          content: Text('Please select any three'),
-                          backgroundColor: Colors.black,
-                          elevation: 10,
-                          behavior: SnackBarBehavior.floating,
-                          padding: EdgeInsets.symmetric(vertical: 25,horizontal: 12),
-                          margin: EdgeInsets.zero,
-                        );
-                        ScaffoldMessenger.of(context).showSnackBar(snackdemo);
-
-
+                        snackBarAlert();
                       },
                     ),
                   ],

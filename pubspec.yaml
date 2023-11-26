@@ -19,7 +19,7 @@ dependencies:
   json_annotation: ^4.8.1
   dio: ^5.3.4
   gif: ^2.3.0
-#  flutter_gif: ^0.0.4
+  shared_preferences: 2.2.2
 
 dev_dependencies:
   flutter_test:

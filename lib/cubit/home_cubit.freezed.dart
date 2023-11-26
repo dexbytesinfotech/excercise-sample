@@ -21,15 +21,18 @@ mixin _$HomeState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() errors,
-    required TResult Function(HomeRespone response) sucess,
+    TResult Function(HomeRespone response)? sucess,
+    TResult Function(List<int> response)? onSelect,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? errors,
     TResult? Function(HomeRespone response)? sucess,
+    TResult Function(List<int> response)? onSelect,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,24 +41,28 @@ mixin _$HomeState {
     TResult Function()? loading,
     TResult Function()? errors,
     TResult Function(HomeRespone response)? sucess,
+    TResult Function(List<int> response)? onSelect,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_loading value) loading,
     required TResult Function(_errors value) errors,
     required TResult Function(_sucess value) sucess,
+    required TResult Function(_select value) onSelect,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_loading value)? loading,
-    TResult? Function(_errors value)? errors,
-    TResult? Function(_sucess value)? sucess,
-  }) =>
+  TResult? mapOrNull<TResult extends Object?>(
+          {TResult? Function(_Initial value)? initial,
+          TResult? Function(_loading value)? loading,
+          TResult? Function(_errors value)? errors,
+          TResult? Function(_sucess value)? sucess,
+          TResult Function(_select value)? onSelect}) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
@@ -63,6 +70,7 @@ mixin _$HomeState {
     TResult Function(_loading value)? loading,
     TResult Function(_errors value)? errors,
     TResult Function(_sucess value)? sucess,
+    TResult Function(_select value)? onSelect,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -79,9 +87,9 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     implements $HomeStateCopyWith<$Res> {
   _$HomeStateCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
+// ignore: unused_field
   final $Val _value;
-  // ignore: unused_field
+// ignore: unused_field
   final $Res Function($Val) _then;
 }
 
@@ -126,7 +134,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() errors,
-    required TResult Function(HomeRespone response) sucess,
+    TResult Function(HomeRespone response)? sucess,
+    TResult Function(List<int> response)? onSelect,
   }) {
     return initial();
   }
@@ -138,6 +147,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? loading,
     TResult? Function()? errors,
     TResult? Function(HomeRespone response)? sucess,
+    TResult? Function(List<int> response)? onSelect,
   }) {
     return initial?.call();
   }
@@ -149,6 +159,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? loading,
     TResult Function()? errors,
     TResult Function(HomeRespone response)? sucess,
+    TResult Function(List<int> response)? onSelect,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -164,6 +175,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_loading value) loading,
     required TResult Function(_errors value) errors,
     required TResult Function(_sucess value) sucess,
+    required TResult Function(_select value) onSelect,
   }) {
     return initial(this);
   }
@@ -175,6 +187,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_loading value)? loading,
     TResult? Function(_errors value)? errors,
     TResult? Function(_sucess value)? sucess,
+    TResult? Function(_select value)? onSelect,
   }) {
     return initial?.call(this);
   }
@@ -186,6 +199,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_loading value)? loading,
     TResult Function(_errors value)? errors,
     TResult Function(_sucess value)? sucess,
+    TResult Function(_select value)? onSelect,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -240,7 +254,8 @@ class _$loadingImpl implements _loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() errors,
-    required TResult Function(HomeRespone response) sucess,
+    TResult Function(HomeRespone response)? sucess,
+    TResult Function(List<int> response)? onSelect,
   }) {
     return loading();
   }
@@ -252,6 +267,7 @@ class _$loadingImpl implements _loading {
     TResult? Function()? loading,
     TResult? Function()? errors,
     TResult? Function(HomeRespone response)? sucess,
+    TResult? Function(List<int> response)? onSelect,
   }) {
     return loading?.call();
   }
@@ -263,6 +279,7 @@ class _$loadingImpl implements _loading {
     TResult Function()? loading,
     TResult Function()? errors,
     TResult Function(HomeRespone response)? sucess,
+    TResult Function(List<int> response)? onSelect,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -278,6 +295,7 @@ class _$loadingImpl implements _loading {
     required TResult Function(_loading value) loading,
     required TResult Function(_errors value) errors,
     required TResult Function(_sucess value) sucess,
+    required TResult Function(_select value) onSelect,
   }) {
     return loading(this);
   }
@@ -289,6 +307,7 @@ class _$loadingImpl implements _loading {
     TResult? Function(_loading value)? loading,
     TResult? Function(_errors value)? errors,
     TResult? Function(_sucess value)? sucess,
+    TResult? Function(_select value)? onSelect,
   }) {
     return loading?.call(this);
   }
@@ -300,6 +319,7 @@ class _$loadingImpl implements _loading {
     TResult Function(_loading value)? loading,
     TResult Function(_errors value)? errors,
     TResult Function(_sucess value)? sucess,
+    TResult Function(_select value)? onSelect,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -354,7 +374,8 @@ class _$errorsImpl implements _errors {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() errors,
-    required TResult Function(HomeRespone response) sucess,
+    TResult Function(HomeRespone response)? sucess,
+    TResult Function(List<int> response)? onSelect,
   }) {
     return errors();
   }
@@ -366,6 +387,7 @@ class _$errorsImpl implements _errors {
     TResult? Function()? loading,
     TResult? Function()? errors,
     TResult? Function(HomeRespone response)? sucess,
+    TResult Function(List<int> response)? onSelect,
   }) {
     return errors?.call();
   }
@@ -377,6 +399,7 @@ class _$errorsImpl implements _errors {
     TResult Function()? loading,
     TResult Function()? errors,
     TResult Function(HomeRespone response)? sucess,
+    TResult Function(List<int> response)? onSelect,
     required TResult orElse(),
   }) {
     if (errors != null) {
@@ -392,6 +415,7 @@ class _$errorsImpl implements _errors {
     required TResult Function(_loading value) loading,
     required TResult Function(_errors value) errors,
     required TResult Function(_sucess value) sucess,
+    required TResult Function(_select value) onSelect,
   }) {
     return errors(this);
   }
@@ -403,6 +427,7 @@ class _$errorsImpl implements _errors {
     TResult? Function(_loading value)? loading,
     TResult? Function(_errors value)? errors,
     TResult? Function(_sucess value)? sucess,
+    TResult? Function(_select value)? onSelect,
   }) {
     return errors?.call(this);
   }
@@ -414,6 +439,7 @@ class _$errorsImpl implements _errors {
     TResult Function(_loading value)? loading,
     TResult Function(_errors value)? errors,
     TResult Function(_sucess value)? sucess,
+    TResult Function(_select value)? onSelect,
     required TResult orElse(),
   }) {
     if (errors != null) {
@@ -495,9 +521,10 @@ class _$sucessImpl implements _sucess {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() errors,
-    required TResult Function(HomeRespone response) sucess,
+    TResult Function(HomeRespone response)? sucess,
+    TResult Function(List<int> response)? onSelect,
   }) {
-    return sucess(response);
+    return sucess!(response);
   }
 
   @override
@@ -507,6 +534,7 @@ class _$sucessImpl implements _sucess {
     TResult? Function()? loading,
     TResult? Function()? errors,
     TResult? Function(HomeRespone response)? sucess,
+    TResult Function(List<int> response)? onSelect,
   }) {
     return sucess?.call(response);
   }
@@ -518,6 +546,7 @@ class _$sucessImpl implements _sucess {
     TResult Function()? loading,
     TResult Function()? errors,
     TResult Function(HomeRespone response)? sucess,
+    TResult Function(List<int> response)? onSelect,
     required TResult orElse(),
   }) {
     if (sucess != null) {
@@ -533,6 +562,7 @@ class _$sucessImpl implements _sucess {
     required TResult Function(_loading value) loading,
     required TResult Function(_errors value) errors,
     required TResult Function(_sucess value) sucess,
+    required TResult Function(_select value) onSelect,
   }) {
     return sucess(this);
   }
@@ -544,6 +574,7 @@ class _$sucessImpl implements _sucess {
     TResult? Function(_loading value)? loading,
     TResult? Function(_errors value)? errors,
     TResult? Function(_sucess value)? sucess,
+    TResult? Function(_select value)? onSelect,
   }) {
     return sucess?.call(this);
   }
@@ -555,6 +586,7 @@ class _$sucessImpl implements _sucess {
     TResult Function(_loading value)? loading,
     TResult Function(_errors value)? errors,
     TResult Function(_sucess value)? sucess,
+    TResult Function(_select value)? onSelect,
     required TResult orElse(),
   }) {
     if (sucess != null) {
@@ -570,5 +602,160 @@ abstract class _sucess implements HomeState {
   HomeRespone get response;
   @JsonKey(ignore: true)
   _$$sucessImplCopyWith<_$sucessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$selectImplCopyWith<$Res> {
+  factory _$$selectImplCopyWith(
+          _$selectImpl value, $Res Function(_$selectImpl) then) =
+      __$$selectImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<int> response});
+}
+
+/// @nodoc
+class __$$selectImplCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$selectImpl>
+    implements _$$selectImplCopyWith<$Res> {
+  __$$selectImplCopyWithImpl(
+      _$selectImpl _value, $Res Function(_$selectImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? response = null,
+  }) {
+    return _then(_$selectImpl(
+      null == response
+          ? []
+          : response // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$selectImpl implements _select {
+  const _$selectImpl(this.selectedList);
+
+  @override
+  final List<int> selectedList;
+
+  @override
+  String toString() {
+    return 'HomeState.sucess(response: $selectedList)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$selectImpl &&
+            (identical(other.response, response) ||
+                other.response == response));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, response);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  __$$selectImplCopyWithImpl<_$selectImpl> get copyWith  =>
+      __$$selectImplCopyWithImpl<_$selectImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() errors,
+    TResult Function(List<int> response)? onSelect,
+    TResult Function(HomeRespone response)? sucess,
+  }) {
+    return onSelect!.call(selectedList);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? errors,
+    TResult? Function(List<int> response)? onSelect,
+    TResult? Function(HomeRespone response)? sucess,
+  }) {
+    return onSelect?.call(response);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? errors,
+    TResult Function(HomeRespone response)? sucess,
+    TResult Function(List<int> response)? onSelect,
+    required TResult orElse(),
+  }) {
+    if (onSelect != null) {
+      return onSelect(response);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_loading value) loading,
+    required TResult Function(_errors value) errors,
+    required TResult Function(_sucess value) sucess,
+    required TResult Function(_select value) onSelect,
+  }) {
+    return onSelect(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_loading value)? loading,
+    TResult? Function(_errors value)? errors,
+    TResult? Function(_sucess value)? sucess,
+    TResult? Function(_select value)? onSelect,
+  }) {
+    return onSelect?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_loading value)? loading,
+    TResult Function(_errors value)? errors,
+    TResult Function(_sucess value)? sucess,
+    TResult Function(_select value)? onSelect,
+    required TResult orElse(),
+  }) {
+    if (sucess != null) {
+      return onSelect!(this);
+    }
+    return orElse();
+  }
+
+  @override
+// TODO: implement response
+  List<int> get response => throw UnimplementedError();
+}
+
+abstract class _select implements HomeState {
+  const factory _select(final List<int> response) = _$selectImpl;
+
+  List<int> get response;
+  @JsonKey(ignore: true)
+  __$$selectImplCopyWithImpl<_$selectImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,8 +1,5 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
 import 'package:gif/gif.dart';
-// import 'package:flutter_gif/flutter_gif.dart';
 
 abstract class ExcerciseWidgets {
   static Widget homeListElement(
@@ -12,6 +9,7 @@ abstract class ExcerciseWidgets {
       required GifController controller,
       required double size,
       required String title}) {
+
     return GestureDetector(
       onTap: onChanged,
       child: Column(
@@ -38,10 +36,7 @@ abstract class ExcerciseWidgets {
                     alignment: Alignment.bottomRight,
                     child: CustomCheckbox(
                       checkColor: const Color(0xFF0DC7B1),
-                      isCheck: selected,
-                      onChanged: (value) {
-                        onChanged;
-                      },
+                      isCheck: selected
                     ),
                   )
                 ],
@@ -73,7 +68,6 @@ class CustomCheckbox extends StatefulWidget {
     this.color,
     this.iconSize,
     this.isCheck = false,
-    this.onChanged,
     this.checkColor,
   }) : super(key: key);
 
@@ -85,43 +79,37 @@ class CustomCheckbox extends StatefulWidget {
   final double? iconSize;
   final Color? checkColor;
   bool isCheck;
-  final Function(bool?)? onChanged;
 
   @override
   State<CustomCheckbox> createState() => _CustomCheckboxState();
 }
 
 class _CustomCheckboxState extends State<CustomCheckbox> {
+  bool isChecked = false;
   @override
   Widget build(BuildContext context) {
-    bool isChecked = widget.isCheck;
-
-    return InkWell(
-      onTap: () {
-        setState(() => isChecked = !isChecked);
-        widget.onChanged?.call(isChecked);
-      },
-      child: Container(
-        alignment: Alignment.center,
-        margin: const EdgeInsets.only(right: 8, bottom: 8),
-        width: widget.width,
-        height: widget.height,
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: widget.color ?? Color(0xFF27282A),
-            width: 1.2,
-          ),
-          color: isChecked ? Color(0xFF27282A) : Colors.white,
-          shape: BoxShape.circle,
+    isChecked =  widget.isCheck;
+    return Container(
+      alignment: Alignment.center,
+      margin: const EdgeInsets.only(right: 8, bottom: 8),
+      width: widget.width,
+      height: widget.height,
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: widget.color ?? const Color(0xFF27282A),
+          width: 1.2,
         ),
-        child: isChecked
-            ? Icon(
-                Icons.check_rounded,
-                size: 12,
-                color: widget.checkColor,
-              )
-            : null,
+        color: isChecked ? const Color(0xFF27282A) : Colors.white,
+        shape: BoxShape.circle,
       ),
+      child: isChecked
+          ? Icon(
+        Icons.check_rounded,
+        size: 12,
+        color: widget.checkColor,
+      )
+          : null,
     );
+
   }
 }
