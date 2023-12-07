@@ -1,9 +1,9 @@
-class HomeRespone {
+class ExerciseModel {
   List<Equipments>? equipments;
 
-  HomeRespone({this.equipments});
+  ExerciseModel({this.equipments});
 
-  HomeRespone.fromJson(Map<String, dynamic> json) {
+  ExerciseModel.fromJson(Map<String, dynamic> json) {
     if (json['equipments'] != null) {
       equipments = <Equipments>[];
       json['equipments'].forEach((v) {

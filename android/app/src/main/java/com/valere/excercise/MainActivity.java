@@ -1,4 +1,4 @@
-package com.valere.excercise;
+package com.valere.exercise;
 
 import io.flutter.embedding.android.FlutterActivity;
 

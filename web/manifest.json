@@ -1,6 +1,6 @@
 {
-    "name": "excercise",
-    "short_name": "excercise",
+    "name": "exercise",
+    "short_name": "exercise",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

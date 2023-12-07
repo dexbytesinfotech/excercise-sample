@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.valere" "\0"
-            VALUE "FileDescription", "excercise" "\0"
+            VALUE "FileDescription", "exercise" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "excercise" "\0"
+            VALUE "InternalName", "exercise" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.valere. All rights reserved." "\0"
-            VALUE "OriginalFilename", "excercise.exe" "\0"
-            VALUE "ProductName", "excercise" "\0"
+            VALUE "OriginalFilename", "exercise.exe" "\0"
+            VALUE "ProductName", "exercise" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

@@ -1,4 +1,4 @@
-# excercise
+# exercise
 
 A new Flutter project.
 
@@ -16,7 +16,7 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 ### App Flow GIF
-![](https://github.com/dexbytesinfotech/excercise-sample/blob/development/media/final_output.gif)
+![](https://github.com/dexbytesinfotech/exercise-sample/blob/development/media/final_output.gif)
 
 ### Spent time: 
   11 Hours.
