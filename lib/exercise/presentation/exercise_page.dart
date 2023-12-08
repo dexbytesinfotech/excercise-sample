@@ -27,7 +27,6 @@ class _ExercisePageState extends State<ExercisePage> with TickerProviderStateMix
 @override
   void dispose() {
     // TODO: implement dispose
-  cubit.controller.dispose();
     super.dispose();
   }
 
@@ -49,8 +48,7 @@ Widget exerciseEquipmentList(){
           onChanged: () {
             cubit.onValueChanged(index: index);
           },
-          controller: cubit.controller,
-          imageUrl: 'https://media.self.com/photos/61d31f66f31786bad768890d/master/w_320%2Cc_limit/Jowan_10.gif',
+          imagePath: 'assets/images/exercise_1.png',
           size: cubit.size,
           title: "${equipmentList.elementAt(index).name}");
     },
@@ -73,7 +71,6 @@ void snackBarAlert({String? message = "Please select any three", bool? isError =
   @override
   Widget build(BuildContext context) {
     cubit.init(context: context);
-    cubit.controller = GifController(vsync: this);
     return BlocConsumer<ExerciseCubit, ExerciseState>(
       bloc: cubit,
       listener: (context, state) {

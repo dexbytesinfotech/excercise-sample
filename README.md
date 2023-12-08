@@ -16,7 +16,10 @@ For help getting started with Flutter development, view the
 samples, guidance on mobile development, and a full API reference.
 
 ### App Flow GIF
-![](https://github.com/dexbytesinfotech/exercise-sample/blob/development/media/final_output.gif)
+#### Select item with fresh application launch
+![](https://github.com/dexbytesinfotech/exercise-sample/blob/development/media/first_time_select.gif)
+#### Select new item after relaunch application and display pre-selected save item
+![](https://github.com/dexbytesinfotech/exercise-sample/blob/development/media/second_time_select.gif)
 
 ### Spent time: 
   11 Hours.

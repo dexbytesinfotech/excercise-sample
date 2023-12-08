@@ -3,15 +3,13 @@ import 'package:gif/gif.dart';
 
 class ExerciseCardWidget extends StatelessWidget  {
    final bool selected;
-   final String imageUrl;
+   final String imagePath;
    final Function() onChanged;
-   final GifController controller;
    final  double size;
    final  String title;
   const ExerciseCardWidget({super.key, required this.selected,
-    required this.imageUrl,
+    required this.imagePath,
     required this.onChanged,
-    required this.controller,
     required this.size,
     required this.title});
 
@@ -32,14 +30,11 @@ class ExerciseCardWidget extends StatelessWidget  {
               child: Stack(
                 fit: StackFit.expand,
                 children: [
-                  Gif(
-                    image: NetworkImage(imageUrl),
-                    controller: controller,
-                    autostart: Autostart.no,
-                    placeholder: (context) => const Center(child:Text('Loading...')),
-                    onFetchCompleted: () {
-                      controller.repeat();
-                    },
+                  Image.asset(
+                    imagePath,
+                    // You can specify additional options like fit and alignment
+                    fit: BoxFit.fitWidth,
+                    alignment: Alignment.center,
                   ),
                   Align(
                     alignment: Alignment.bottomRight,

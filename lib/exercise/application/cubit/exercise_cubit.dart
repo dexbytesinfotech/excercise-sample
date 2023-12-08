@@ -13,7 +13,6 @@ part 'exercise_cubit.freezed.dart';
 class ExerciseCubit extends Cubit<ExerciseState> {
   ExerciseCubit() : super(const ExerciseState());
 
-  late GifController controller;
   ExerciseModel? response;
   List<int> selectedOption = [];
   late double size;
