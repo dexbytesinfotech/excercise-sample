@@ -11,5 +11,5 @@ A Flutter demo project.
 ### Spent time: 
   11.5 Hours.
 
-#### Demo apk link
-![](https://drive.google.com/file/d/16PJfJftegNKFcxxBd9IJeACtwNwCKhj0/view?usp=sharing)
+#### Demo apk download link:
+- [Click to download demo application](https://drive.google.com/file/d/16PJfJftegNKFcxxBd9IJeACtwNwCKhj0/view?usp=sharing)
