@@ -79,7 +79,7 @@ class ExerciseCardWidget extends StatelessWidget  {
         color: color,
         width: 1.2,
       ),
-      color: isCheck ? checkColor : Colors.white,
+      color: isCheck ? color : Colors.white,
       shape: BoxShape.circle,
     ),
     child: isCheck
